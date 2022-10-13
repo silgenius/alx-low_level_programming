@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - description for main
+ * main - description for main six.c file
  *
- * Return 0
+ * Return: 0
 */
 int main(void)
 {
