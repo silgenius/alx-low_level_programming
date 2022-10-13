@@ -1,2 +1,2 @@
 #!/bin/bash
-git -S $CFILE
+gcc -S $CFILE
