@@ -2,13 +2,11 @@
 
 /**
  * main - tests function that prints if integer is positive or negative
- * description - testing function
- *
  * Return: 0
  */
+
 int main(void)
 {
-
 	int i;
 
 	i = 0;
@@ -16,4 +14,3 @@ int main(void)
 
 	return (0);
 }
-
