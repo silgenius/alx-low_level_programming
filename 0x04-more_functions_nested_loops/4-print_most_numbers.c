@@ -11,7 +11,7 @@ void print_most_numbers(void)
 {
 	char ch = 48;
 
-	for (ch = 48; ch <= 47; ch++)
+	for (ch = 48; ch <= 57; ch++)
 	{
 		if (ch == 50 || ch == 52)
 			continue;
