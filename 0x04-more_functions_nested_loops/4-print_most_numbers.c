@@ -9,11 +9,11 @@
 
 void print_most_numbers(void)
 {
-	char ch = '48';
+	char ch = 48;
 
 	for (ch = 48; ch <= 47; ch++)
 	{
-		if (ch == '2' || ch == '9')
+		if (ch == 50 || ch == 52)
 			continue;
 		putchar(ch);
 	}
