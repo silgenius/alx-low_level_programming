@@ -10,8 +10,6 @@
 
 void print_line(int n)
 {
-	n = 2;
-
 	int i;
 
 	for (i = 0; i <= n - 1; i++)
