@@ -10,7 +10,7 @@
  *
  *  */
 
-int main(void)
+void more_numbers(void)
 {
 	int i, ch;
 
@@ -22,6 +22,6 @@ int main(void)
 				putchar((ch / 10) + 48);
 			putchar((ch % 10) + 48);
 		}
-		putchar('\n')
+		putchar('\n');
 	}
 }
