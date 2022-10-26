@@ -1,17 +1,26 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- *_puts -  a function that prints a string, followed by a new line,
- * to stdout
+ *  _puts - prints a string, followed by a new line.
  *
- * @str: the functioon takes a string
+ *  @str: input string.
  *
- * Return: returns nothing
+ *  Return: no return.
+ *
  */
 
 void _puts(char *str)
 {
-	putc(*str, stdout);
-	putc('\n', stdout);
+	int count = 0;
+
+	while (count >= 0)
+	{
+		if (str[count] == '\0')
+		{
+			putchar('\n');
+			break;
+		}
+		putchar(str[count]);
+		count++;
+	}
 }
