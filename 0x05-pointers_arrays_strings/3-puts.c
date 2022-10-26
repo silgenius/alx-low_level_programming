@@ -12,6 +12,6 @@
 
 void _puts(char *str)
 {
-	putchar(*str);
-	putchar('\n');
+	putc(*str, stdout);
+	putc('\n', stdout);
 }
