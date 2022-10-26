@@ -7,7 +7,7 @@
  * Return: nothing because it iis a void function
  */
 
-void reset_to_98(int *n);
+void reset_to_98(int *n)
 {
 	*n = 98;
 }
