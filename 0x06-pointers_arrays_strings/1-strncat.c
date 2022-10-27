@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _strcat - concatenate 2 char
+ * _strncat - concatenate 2 char
  * @dest: first char
  * @src: second char
  * @n: amount of byte
