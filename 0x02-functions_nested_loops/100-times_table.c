@@ -27,8 +27,15 @@ void print_times_table(int n)
 				_putchar(result + '0');
 			else if ((result >= 10) && (result <= 99))
 			{
+				_putchar(' ');
 				_putchar(i / 10 + '0');
 				_putchar(i % 10 + '0');
+			}
+			else if (j != 0)
+			{
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(z + '0');
 			}
 			else
 			{

@@ -14,5 +14,6 @@
 int print_last_digit(int n)
 {
 	n %= 10;
+	_putchar(n + '0');
 	return (n + '0');/*Convert numeric value to character*/
 }
