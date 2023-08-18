@@ -1,4 +1,30 @@
 #include <stdio.h>
+/**
+ * primeFactors - find prime factor of
+ * a number
+ *
+ * @n: int
+ * Return: void
+ */
+void primeFactors(long long n)
+{
+	while (n % 2 == 0)
+	{
+		n = n / 2;
+	}
+
+	for (int i = 3; i * i <= n; i = i + 2)
+	{
+		while (n % i == 0)
+		{
+			n = n / i;
+		}
+	}
+
+
+	if (n > 2)
+		printf("%lld ", n);
+}
 
 /**
 * main -  a program that finds and prints the largest prime factor
@@ -7,21 +33,6 @@
 */
 int main(void)
 {
-	long long number = 612852475143;
-	long long largestPrimeFactor = 2;
-
-	while (number > 1)
-	{
-		if (number % largestPrimeFactor == 0)
-		{
-			number /= largestPrimeFactor;
-		}
-		else
-		{
-			largestPrimeFactor++;
-		}
-	}
-	printf("%lld\n", largestPrimeFactor);
+	primeFactors(612852475143);
 	return (0);
 }
-
