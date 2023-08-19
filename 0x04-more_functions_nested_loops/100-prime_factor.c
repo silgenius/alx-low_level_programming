@@ -6,14 +6,16 @@
  * @n: int
  * Return: void
  */
-void primeFactors(long long n)
+void primeFactors(long n)
 {
+	int i;
+	
 	while (n % 2 == 0)
 	{
 		n = n / 2;
 	}
 
-	for (int i = 3; i * i <= n; i = i + 2)
+	for (i = 3; i * i <= n; i = i + 2)
 	{
 		while (n % i == 0)
 		{
@@ -23,7 +25,7 @@ void primeFactors(long long n)
 
 
 	if (n > 2)
-		printf("%lld ", n);
+		printf("%ld ", n);
 }
 
 /**

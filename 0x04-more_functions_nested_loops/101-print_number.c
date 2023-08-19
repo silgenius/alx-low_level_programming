@@ -11,22 +11,26 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		n = n * -1;
 	}
-	int divisor = 1;
-	int temp = n;
-
-	while (temp > 9)
+	if (n <= 9)
+		_putchar(n + '0');
+	else if (n <= 99)
 	{
-		divisor *= 10;
-		temp /= 10;
+		_putchar(n / 10 + '0');
+		_putchar(n % 10 + '0');
 	}
-	while (divisor > 0)
+	else if (n <= 999)
 	{
-		int digit = n / divisor;
-
-		_putchar('0' + digit);
-		n -= digit * divisor;
-		divisor /= 10;
+		_putchar(n / 100 + '0');
+		_putchar((n % 100) / 10 + '0');
+		_putchar(n % 10 + '0');
+	}
+	else
+	{
+		_putchar(n / 1000 + '0');
+		_putchar((n % 1000) / 100 + '0');
+		_putchar(((n % 1000) % 100) / 10 + '0');
+		_putchar(n % 10 + '0');
 	}
 }
