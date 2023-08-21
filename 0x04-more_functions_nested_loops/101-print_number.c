@@ -8,7 +8,8 @@
 */
 void print_number(int n)
 {
-	int pow, loop_breaker;
+	unsigned int pow;
+	int loop_breaker;
 
 	if (n < 0)
 	{
