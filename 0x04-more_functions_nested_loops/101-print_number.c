@@ -8,29 +8,30 @@
 */
 void print_number(int n)
 {
+	int pow, loop_breaker;
+
 	if (n < 0)
 	{
 		_putchar('-');
 		n = n * -1;
 	}
-	if (n <= 9)
-		_putchar(n + '0');
-	else if (n <= 99)
+	pow = 1;
+
+	while (n / (pow * 10) > 0)
+		pow *= 10; /*finding the power of n*/
+	loop_breaker = 1;
+
+	while (loop_breaker == 1)
 	{
-		_putchar(n / 10 + '0');
-		_putchar(n % 10 + '0');
-	}
-	else if (n <= 999)
-	{
-		_putchar(n / 100 + '0');
-		_putchar((n % 100) / 10 + '0');
-		_putchar(n % 10 + '0');
-	}
-	else
-	{
-		_putchar(n / 1000 + '0');
-		_putchar((n % 1000) / 100 + '0');
-		_putchar(((n % 1000) % 100) / 10 + '0');
-		_putchar(n % 10 + '0');
+		if (pow == 1)
+		{
+			_putchar('0' + n % 10);
+			loop_breaker = 0;
+		}
+		else
+		{
+			_putchar('0' + (n / pow) % 10);
+			pow /= 10;
+		}
 	}
 }
