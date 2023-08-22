@@ -10,7 +10,8 @@
 void print_rev(char *s)
 {
 	/* finding the length */
-	int length, i;
+	int length, i, j;
+	char temp;
 
 	length = 0;
 	i = 0;
@@ -20,22 +21,11 @@ void print_rev(char *s)
 		i++;
 	}
 
-	/* copy s to tmp */
-	char temp[length];
-
-	for (i = 0; s[i]; i++)
-	{
-		temp[i] = s[i];
-	}
-
 	/* print str in reverse */
-	int j;
-
-	j = 0;
-	for (i = length - 1; i >= 0; i--)
+	for (i = 0, j = length - 1; i < j; i++, j--)
 	{
-		s[j] = temp[i];
-		j++;
+		temp = s[i];
+		s[i] = s[j];
+		s[j] = temp;
 	}
-	s[j] = '\0'; /* append null char to s */
 }
