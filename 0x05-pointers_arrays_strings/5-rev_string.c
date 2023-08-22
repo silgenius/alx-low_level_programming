@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * print_rev -  a function that prints a string,
+ * rev_string -  a function that prints a string,
  * in reverse, followed by a new line.
  *
  * @s: char
  * Return: nothing
  */
-void print_rev(char *s)
+void rev_string(char *s)
 {
 	/* finding the length */
 	int length, i, j;

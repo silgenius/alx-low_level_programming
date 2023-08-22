@@ -17,6 +17,7 @@ void print_rev(char *s)
 	while (s[i])
 	{
 		length++;
+		i++;
 	}
 
 	/* print str in reverse */
