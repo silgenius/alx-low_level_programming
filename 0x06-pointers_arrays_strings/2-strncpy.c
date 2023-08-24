@@ -3,7 +3,7 @@
 
 /**
  * _strncpy -  a function that prints a string, in reverse.
- * 
+ *
  * @src: char
  * @dest: char
  * @n: int
