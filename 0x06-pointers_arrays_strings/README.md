@@ -19,7 +19,7 @@ This project covers additional concepts related to pointers, arrays, and strings
 To access the code and documentation for the projects in this repository:
 
 1. Clone this repository to your local machine using:
-git clone https://github.com/your-username/alx-low_level_programming.git
+git clone https://github.com/silgenius/alx-low_level_programming.git
 
 2. Navigate to the appropriate project directory, such as `0x06-pointers_arrays_strings`.
 
