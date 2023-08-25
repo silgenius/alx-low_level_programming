@@ -20,7 +20,10 @@ char *leet(char *s)
 		for (j = 0; charset_alpha[j]; j++)
 		{
 			if (charset_alpha[j] == s[i])
+			{
 				s[i] = charset_num[j];
+				break;
+			}
 		}
 	}
 	return (s);
