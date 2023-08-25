@@ -3,9 +3,9 @@
 #include <ctype.h>
 
 /**
- * print_buffer
+ * print_buffer - a function that prints a buffer
  *
- * @b - char
+ * @b: char
  * @size: int
  */
 void print_buffer(char *b, int size)
@@ -17,12 +17,12 @@ void print_buffer(char *b, int size)
 		printf("\n");
 		return;
 	}
-	
+
 	for (i = 0; i < size; i += 10)
 	{
 		printf("%08x: ", i);
-
-        /* Print hexadecimal content and character representation */
+		
+		/* Print hexadecimal content and character representation */
 		for (j = i; j < i + 10; j++)
 		{
 			if (j < size)
@@ -38,7 +38,7 @@ void print_buffer(char *b, int size)
 				printf(" ");
 			}
 		}
-		
+
 		/* Print the character representation */
 		for (j = i; j < i + 10; j++)
 		{
