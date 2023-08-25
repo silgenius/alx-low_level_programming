@@ -1,14 +1,16 @@
 #include "main.h"
 #include <string.h>
+#include <stdio.h>
 
 /**
- * _strcmp -  a function that prints a string, in reverse.
+ * main - check the code
  *
- * @s1: char
- * @s2: char
- * Return: int
+ * Return: Always 0.
  */
 int _strcmp(char *s1, char *s2)
 {
-	return (strcmp(*s1, *s2));
+    int result;
+
+    result = strcmp(s1, s2);
+    return (result);
 }
