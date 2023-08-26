@@ -16,7 +16,7 @@ int main(void)
 
 	srand (time(NULL));
 
-	const char *charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#&%!";
+	const char *charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	length = 11;
 
 	for (i = 0; i < length; i++)
