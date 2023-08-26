@@ -15,7 +15,7 @@ int main(void)
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZ\n"
 		"123456789#!";
 	int i, length, random_index;
-	char password[10];
+	char password[12];
 
 	srand (time(NULL));
 
