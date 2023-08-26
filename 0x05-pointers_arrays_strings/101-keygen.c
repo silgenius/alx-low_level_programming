@@ -13,7 +13,7 @@ int main(void)
 {
 	const char *charset = "abcdefghijklmnopqrstuvwxyz\n"
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZ\n"
-		"123456789#!;
+		"123456789#!";
 	int i, length, random_index;
 	char password[10];
 
