@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * leet - a function that encodes a string into 1337.
@@ -9,13 +8,12 @@
  */
 char *leet(char *s)
 {
-	int i, j, len;
+	int i, j;
 
 	const char *charset_alpha = "AaEeOoTtLl";
 	const char *charset_num = "44330077711";
 
-	len = strlen(s);
-	for (i = 0; i < len; i++)
+	for (i = 0; s[i]; i++)
 	{
 		for (j = 0; charset_alpha[j]; j++)
 		{
