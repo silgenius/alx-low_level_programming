@@ -18,6 +18,7 @@ unsigned int _strspn(char *s, char *accept)
 	while (*s != '\0')
 	{
 		const char *a = accept;
+
 		while (*a != '\0')
 		{
 			if (*s == *a)
