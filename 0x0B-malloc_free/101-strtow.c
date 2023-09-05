@@ -36,10 +36,10 @@ int count_words(char *str)
  */
 char **strtow(char *str)
 {
+	int num_words = count_words(str);
+
 	if (str == NULL || *str == '\0')
 		return (NULL);
-
-	int num_words = count_words(str);
 
 	if (num_words == 0)
 		return (NULL);
