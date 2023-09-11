@@ -1,4 +1,4 @@
-#ifdef DOG_H
+#ifndef DOG_H
 #define DOG_H
 
 /**
@@ -10,22 +10,16 @@
  * Description: This structure stores details about a dog, including its name,
  *              age, and the name of its owner.
  */
-struct dog
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
-
-/**
- * dogt - typedef for struct dog
- */
-typedef struct dog dog_t;
-
+void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
-
 void free_dog(dog_t *d);
 
 #endif /* DOG_H */
