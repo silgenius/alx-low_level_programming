@@ -49,5 +49,6 @@ int main(int argc, char *argv[])
 	result = operation(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 
-	return (result);
+	return (0);
+
 }
