@@ -1,18 +1,5 @@
-/**
- * struct dog - Represents information about a dog.
- * @name: Pointer to a character array for the dog's name.
- * @age: Age of the dog as a floating-point number.
- * @owner: Pointer to a character array for the owner's name.
- *
- * Description: This structure stores details about a dog, including its name,
- *              age, and the name of its owner.
- */
-struct dog
-{
-        char *name;
-        float age;
-        char *owner;
-};
+#include <stdlib.h>
+#include "dog.h"
 
 /**
  * init_dog - Initializes a struct dog with specified values.
@@ -23,7 +10,10 @@ struct dog
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	d->name = name;
-	d->age = age;
-	d->owner = owner;
+	if (d != NULL)
+	{
+		d->name = name;
+		d->age = age;
+		d->owner = owner;
+	}
 }
