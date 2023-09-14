@@ -5,7 +5,8 @@
  * @n: The number of parameters to be summed.
  * @...: A variable number of arguments to be summed.
  *
- * Description: This function takes a variable number of arguments and returns their sum.
+ * Description: This function takes a variable number of
+ * arguments and returns their sum.
  *
  * Return: The sum of all the parameters.
  */

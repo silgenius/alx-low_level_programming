@@ -2,13 +2,15 @@
 #include <stdio.h>
 
 /**
- * print_numbers - Prints a variable number of integers with a specified separator.
+ * print_numbers - Prints a variable number of integers
+ * with a specified separator.
  * @separator: The string used to separate the numbers.
  * @n: The number of integers to be printed.
  * @...: A variable number of integers to be printed.
  *
- * Description: This function takes a separator string and a variable number of integers,
- *              and prints the integers with the specified separator between them.
+ * Description: This function takes a separator string
+ * and a variable number of integers,
+ *and prints the integers with the specified separator between them.
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
