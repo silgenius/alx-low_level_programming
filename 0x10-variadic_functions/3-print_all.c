@@ -1,6 +1,57 @@
 #include "variadic_functions.h"
 #include <stdio.h>
-#include <string.h>
+
+/**
+ * print_c - Prints a character.
+ * @arglist: A va_list containing the argument to be printed.
+ *
+ * Description: This function takes a va_list containing a character
+ * argument and prints the character.
+ */
+void print_c(va_list arglist)
+{
+	printf("%c", va_arg(arglist, int));
+}
+
+/**
+ * print_i - Prints an integer.
+ * @arglist: A va_list containing the argument to be printed.
+ *
+ * Description: This function takes a va_list containing an integer
+ * argument and prints the integer.
+ */
+void print_i(va_list arglist)
+{
+	printf("%d", va_arg(arglist, int));
+}
+
+/**
+ * print_f - Prints a floating-point number.
+ * @arglist: A va_list containing the argument to be printed.
+ *
+ * Description: This function takes a va_list containing a floating-point
+ * argument and prints the floating-point number.
+ */
+void print_f(va_list arglist)
+{
+	printf("%f", va_arg(arglist, double));
+}
+
+/**
+ * print_s - Prints a string.
+ * @arglist: A va_list containing the argument to be printed.
+ *
+ * Description: This function takes a va_list containing a pointer to a
+ * string argument and prints the string.
+ */
+void print_s(va_list arglist)
+{
+	char *s = va_arg(arglist, char *);
+
+	if (s == NULL)
+		s = "(nil)";
+	printf("%s", s);
+}
 
 /**
  * print_all - Prints values according to a specified format.
@@ -14,48 +65,41 @@
 void print_all(const char * const format, ...)
 {
 	va_list arglist;
-	int c, d, flag;
-	char *s;
-	size_t i;
-	double f;
-
-	i = 0;
-	flag = 0;
+	size_t i = 0;
 
 	va_start(arglist, format);
 
-	while (format[i] && format)
+	while (format[i])
 	{
 		switch (format[i])
 		{
 			case 'c':
-				c = va_arg(arglist, int);
-				printf("%c", c);
+				print_c(arglist);
 				break;
 			case 'i':
-				d = va_arg(arglist, int);
-				printf("%d", d);
+				print_i(arglist);
 				break;
 			case 'f':
-				f = va_arg(arglist, double);
-				printf("%f", f);
+				print_f(arglist);
 				break;
 			case 's':
-				s = va_arg(arglist, char *);
-				if (s == NULL)
-					s = "(nil)";
-				printf("%s", s);
+				print_s(arglist);
 				break;
 			default:
-				flag = 1;
 				break;
 		}
 
-		if (format[i + 1] != '\0' && flag == 0)
+		if (format[i + 1] != '\0' &&
+				(format[i] == 'c' || format[i] == 'i'
+				 || format[i] == 'f' || format[i] == 's'))
+		{
 			printf(", ");
+		}
+
 		i++;
-		flag = 0;
 	}
+
 	va_end(arglist);
 	printf("\n");
 }
+
