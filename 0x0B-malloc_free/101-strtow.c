@@ -63,8 +63,8 @@ char **strtow(char *str)
 		{
 			for (i = 0; i < word_index; i++)
 				free(words[i]);
-		free(words);
-		return (NULL);
+			free(words);
+			return (NULL);
 		}
 		word_index++;
 		token = strtok(NULL, " ");

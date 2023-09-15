@@ -22,6 +22,22 @@ Welcome to the ALX SE Programme's low-level programming project repository. This
 
 - **0x08-recursion:** Projects exploring the concept of recursion in programming.
 
+- **0x09-static_libraries:** Creating and using static libraries in C.
+
+- **0x0A-argc_argv:** Projects involving command line arguments in C.
+
+- **0x0B-malloc_free:** Dynamic memory allocation and freeing memory in C.
+
+- **0x0C-more_malloc_free:** Further practice with dynamic memory allocation.
+
+- **0x0D-preprocessor:** Learning about the C preprocessor and how it works.
+
+- **0x0E-structures_typedef:** Introduction to structures and typedef in C.
+
+- **0x0F-function_pointers:** Understanding and using function pointers in C.
+
+- **0x10-variadic_functions:** Projects involving variadic functions in C.
+
 ## Usage
 
 Feel free to explore the projects within each topic folder. Each project comes with its own set of instructions and challenges to complete. You can use these projects as learning resources, references, or examples of how to solve specific programming problems.
