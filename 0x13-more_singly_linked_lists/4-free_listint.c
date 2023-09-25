@@ -7,11 +7,11 @@
  * Description: This function takes a pointer to the head of a linked list and
  *              frees all the nodes in the list.
  */
-void free_listint(listint_t *head);
+void free_listint(listint_t *head)
 {
 	listint_t *ptr;
 
-	while (*head != NULL)
+	while (head != NULL)
 	{
 		ptr = head->next;
 		free(head);
