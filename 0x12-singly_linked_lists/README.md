@@ -18,7 +18,7 @@ Feel free to explore the projects and use them as a reference or resource for yo
 
 ## Acknowledgement
 
-Special thanks to ALX School for providing the projects and resources to learn about singly linked lists and low-level programming. The solutions presented here were developed by [Your Username](https://github.com/yourusername) as part of the ALX School curriculum.
+Special thanks to ALX School for providing the projects and resources to learn about singly linked lists and low-level programming. The solutions presented here were developed by [silgenius](https://github.com/silgenius) as part of the ALX School curriculum.
 
 For more information about ALX School, visit their website: [ALX School](https://www.alxafrica.com/)
 
