@@ -5,10 +5,11 @@
  * @head: A pointer to a pointer to the head of the linked list.
  * @n: The integer value to be stored in the new node.
  *
- * Description: This function creates a new node with the specified integer value
- *              and adds it at the end of the linked list.
+ * Description: This function creates a new node with the specified integer
+ * value and adds it at the end of the linked list.
  *
- * Return: A pointer to the newly created node, or NULL if memory allocation fails.
+ * Return: A pointer to the newly created node,
+ * or NULL if memory allocation fails.
  */
 listint_t *add_nodeint_end(listint_t **head, const int n)
 {
@@ -32,6 +33,6 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = ptr;
-	
+
 	return (*head);
 }

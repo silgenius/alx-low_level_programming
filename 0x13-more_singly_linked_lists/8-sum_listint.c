@@ -7,8 +7,8 @@
  * Description: This function takes a pointer to the head of a linked list and
  *              calculates the sum of all the integer values in the list.
  *
- * Return: The sum of all the integers in the linked list. If the list is empty,
- *         it returns 0.
+ * Return: The sum of all the integers in the linked list.
+ * If the list is empty, it returns 0.
  */
 int sum_listint(listint_t *head)
 {
