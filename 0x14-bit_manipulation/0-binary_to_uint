@@ -13,7 +13,11 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
+	int index, cal;
 	unsigned int result;
+
+	index = strlen(b);
+	index -= 1;
 	result = 0;
 
 	if (b == NULL)
@@ -22,7 +26,9 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (*b != '0' && *b != '1')
 			return (0);
-		result = (result << 1) + (*b - '0');
+		cal = (1 << index) * (*b - '0');
+		result += cal;
+		index--;
 		b++;
 	}
 
