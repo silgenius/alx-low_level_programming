@@ -14,6 +14,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int result;
+
 	result = 0;
 
 	if (b == NULL)
