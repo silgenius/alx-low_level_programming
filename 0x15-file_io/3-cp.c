@@ -15,7 +15,7 @@ void error_FileTo(char *file)
 }
 
 /**
- * error_FileFromm - Handles an error when reading from a file.
+ * error_FileFrom - Handles an error when reading from a file.
  * @file: The name of the file.
  *
  * Description: This function is called when an error occurs while attempting
@@ -49,11 +49,11 @@ void error_close(int n)
  * @argv: An array of pointers to strings containing the arguments.
  *
  * Description: This program takes two command-line arguments: the source file
- *              (file_from) and the destination file (file_to). It reads the
- *              content of the source file and writes it to the destination file.
+ *(file_from) and the destination file (file_to). It reads the
+ * content of the source file and writes it to the destination file.
  *
  * Return: Upon successful completion, returns 0. If incorrect arguments are
- *         provided or if there are errors during file operations, it returns 1.
+ * provided or if there are errors during file operations, it returns 1.
  */
 int main(int argc, char *argv[])
 {
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 		error_FileTo(argv[2]);
 
 	fd_FileFrom = open(argv[1], O_RDONLY);
-	
+
 	if (fd_FileFrom == -1)
 		error_FileFrom(argv[1]);
 	buffer = malloc(sizeof(char) * 1024);
@@ -84,7 +84,8 @@ int main(int argc, char *argv[])
 	{
 		if (byteread == -1)
 			error_FileFrom(argv[1]);
-		if ((bytewrite = write(fd_FileTo, buffer, byteread)) == -1)
+		bytewrite = write(fd_FileTo, buffer, byteread);
+		if (bytewrite == -1)
 			error_FileTo(argv[2]);
 	}
 
