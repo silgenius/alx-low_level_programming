@@ -1,0 +1,79 @@
+#include "main.h"
+
+void open_file_read(char *argv)
+{
+	file_read = open(argv, O_RDONLY);
+
+	if (file_read == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s", argv[1]);
+		exit(98);
+	}
+}
+
+void open_file_write(char *argv)
+{
+	file_write = open(argv, O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+
+	if (file_write == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+}
+
+#include "main.h"
+
+/**
+ * main - Copies the content of one file to another.
+ * @argc: The number of command-line arguments.
+ * @argv: An array of pointers to strings containing the arguments.
+ *
+ * Description: This program takes two command-line arguments: the source file
+ *              (file_from) and the destination file (file_to). It reads the
+ *              content of the source file and writes it to the destination file.
+ *
+ * Return: Upon successful completion, returns 0. If incorrect arguments are
+ *         provided or if there are errors during file operations, it returns 1.
+ */
+#include "main.h"
+
+void exitWithError(int code, const char* message) {
+    dprintf(2, "%s\n", message);
+    exit(code);
+}
+
+int main(int argc, char *argv[])
+{
+    const char* file_from = argv[1];
+    const char* file_to = argv[2];
+    ssize_t bytesRead, bytesWritten;
+    char *buffer;
+
+    open_file_read(file_from);
+    open_file_write(file_to);
+
+    buffer = malloc(sizeof(char) * 1025);
+
+    while ((bytesRead = read(file_read, buffer, sizeof(buffer))) > 0) {
+        bytesWritten = write(file_write, buffer, bytesRead);
+        if (bytesWritten != bytesRead) {
+            close(file_read);
+            close(file_write);
+            exitWithError(99, strerror(errno));
+        }
+    }
+
+    if (bytesRead == -1) {
+        close(file_read);
+        close(file_write);
+        exitWithError(98, strerror(errno));
+    }
+
+    if (close(file_read) == -1 || close(file_write) == -1) {
+        exitWithError(100, strerror(errno));
+    }
+
+    return 0;
+}
+

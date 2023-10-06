@@ -1,6 +1,49 @@
 #include "main.h"
 
 /**
+ * error_FileTo - Handles an error when writing to a file.
+ * @file: The name of the file.
+ *
+ * Description: This function is called when an error occurs while attempting
+ *              to write to the specified file. It prints an error message to
+ *              the standard error output and exits the program with status 99.
+ */
+void error_FileTo(char *file)
+{
+	dprintf(2, "Error: Can't write to %s\n", file);
+	exit(99);
+}
+
+/**
+ * error_FileFromm - Handles an error when reading from a file.
+ * @file: The name of the file.
+ *
+ * Description: This function is called when an error occurs while attempting
+ *              to read from the specified file. It prints an error message to
+ *              the standard error output and exits the program with status 98.
+ */
+void error_FileFrom(char *file)
+{
+	dprintf(2, "Error: Can't read from file %s", file);
+	exit(98);
+}
+
+/**
+ * error_close - Handles an error when closing a file descriptor.
+ * @n: The file descriptor number.
+ *
+ * Description: This function is called when an error occurs while attempting
+ *              to close the specified file descriptor. It prints an error
+ *              message to the standard error output and exits the program with
+ *              status 100.
+ */
+void error_close(int n)
+{
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", n);
+	exit(100);
+}
+
+/**
  * main - Copies the content of one file to another.
  * @argc: The number of command-line arguments.
  * @argv: An array of pointers to strings containing the arguments.
@@ -16,63 +59,41 @@ int main(int argc, char *argv[])
 {
 	char *buffer;
 	int fd_FileTo, fd_FileFrom;
-	ssize_t closeFileTo, closeFileFrom, byteread, bytewrite;
+	ssize_t byteread, bytewrite;
+
 	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_t\n");
 		exit(97);
 	}
 
-	fd_FileTo = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd_FileTo = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
 
 	if (fd_FileTo == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
+		error_FileTo(argv[2]);
 
 	fd_FileFrom = open(argv[1], O_RDONLY);
 	
 	if (fd_FileFrom == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s", argv[1]);
-		exit(98);
-	}
-	buffer = malloc(sizeof(char) * 1025);
+		error_FileFrom(argv[1]);
+	buffer = malloc(sizeof(char) * 1024);
+
 	if (buffer == NULL)
 		return (0);
-	byteread = read(fd_FileFrom, buffer, sizeof(char) *1024);
-	if (byteread == -1)
+	while ((byteread = read(fd_FileFrom, buffer, 1024)) != 0)
 	{
-		dprintf(2, "Error: Can't read from file %s", argv[1]);
-		close(fd_FileTo);
-		close(fd_FileFrom);
-		free(buffer);
-		exit(98);
-	}
-	buffer[byteread] = '\0';
-	bytewrite = write(fd_FileTo, buffer, byteread);
-	if (bytewrite == -1 || bytewrite != byteread)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		close(fd_FileTo);
-		close(fd_FileFrom);
-		free(buffer);
-		exit(99);
-	}
-
-	closeFileFrom = close(fd_FileFrom);
-	closeFileTo = close(fd_FileTo);
-
-	if (closeFileFrom == -1 || closeFileTo == -1)
-	{
-		closeFileFrom == -1 ? dprintf(2, "Error: Can't close fd %d", fd_FileFrom) :
-			dprintf(2, "Error: Can't close fd %d", fd_FileTo);
-		exit(100);
+		if (byteread == -1)
+			error_FileFrom(argv[1]);
+		if ((bytewrite = write(fd_FileTo, buffer, byteread)) == -1)
+			error_FileTo(argv[2]);
 	}
 
 	free(buffer);
+
+	if ((close(fd_FileFrom)) == -1)
+		error_close(fd_FileFrom);
+	if ((close(fd_FileTo)) == -1)
+		error_close(fd_FileTo);
 	return (0);
 }
-
 
