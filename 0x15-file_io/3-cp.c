@@ -57,17 +57,20 @@ void error_close(int n)
  */
 int main(int argc, char *argv[])
 {
-	char *buffer;
+	char buffer[BUF_SIZE];
 	int fd_FileTo, fd_FileFrom;
 	ssize_t byteread, bytewrite;
+	mode_t mode;
+
+	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_t\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_t\n");
 		exit(97);
 	}
 
-	fd_FileTo = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+	fd_FileTo = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, mode);
 
 	if (fd_FileTo == -1)
 		error_FileTo(argv[2]);
@@ -76,11 +79,7 @@ int main(int argc, char *argv[])
 
 	if (fd_FileFrom == -1)
 		error_FileFrom(argv[1]);
-	buffer = malloc(sizeof(char) * 1024);
-
-	if (buffer == NULL)
-		return (0);
-	while ((byteread = read(fd_FileFrom, buffer, 1024)) != 0)
+	while ((byteread = read(fd_FileFrom, buffer, BUF_SIZE)) != 0)
 	{
 		if (byteread == -1)
 			error_FileFrom(argv[1]);
@@ -88,8 +87,6 @@ int main(int argc, char *argv[])
 		if (bytewrite == -1)
 			error_FileTo(argv[2]);
 	}
-
-	free(buffer);
 
 	if ((close(fd_FileFrom)) == -1)
 		error_close(fd_FileFrom);
