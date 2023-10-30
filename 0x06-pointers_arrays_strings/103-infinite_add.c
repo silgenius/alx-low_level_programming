@@ -1,7 +1,19 @@
 #include "main.h"
 #include <string.h>
 #include <stdio.h>
-
+/**
+ * infinite_add - Adds two numbers.
+ * @n1: The first number.
+ * @n2: The second number.
+ * @r: The buffer to store the result.
+ * @size_r: The buffer size.
+ *
+ * Description: This function adds two numbers represented as strings and
+ * stores the result in the provided buffer. It returns a pointer to the
+ * result. If the result cannot be stored in r, it returns 0.
+ *
+ * Return: A pointer to the result, or 0 if the result cannot be stored in r.
+ */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int len1 = strlen(n1), len2 = strlen(n2);
