@@ -11,9 +11,10 @@ void print_number(int n)
 	unsigned int pow;
 	int loop_breaker;
 
-	if (n < 0)
+	if (n < 1)
 	{
-		_putchar('-');
+		if (n != 0)
+			_putchar('-');
 		n = n * -1;
 	}
 	pow = 1;
