@@ -1,0 +1,42 @@
+#include <Python.h>
+
+PyObject *add(PyObject *a, PyObject *b)
+{
+    Py_ssize_t value_a = PyLong_AsSsize_t(a);
+    Py_ssize_t value_b = PyLong_AsSsize_t(b);
+
+    return PyLong_FromSsize_t(value_a + value_b);
+}
+
+PyObject *sub(PyObject *a, PyObject *b)
+{
+    Py_ssize_t value_a = PyLong_AsSsize_t(a);
+    Py_ssize_t value_b = PyLong_AsSsize_t(b);
+
+    return PyLong_FromSsize_t(value_a - value_b);
+}
+
+PyObject *divi(PyObject *a, PyObject *b)
+{
+    Py_ssize_t value_a = PyLong_AsSsize_t(a);
+    Py_ssize_t value_b = PyLong_AsSsize_t(b);
+
+    return PyLong_FromSsize_t(value_a / value_b);
+}
+
+PyObject *mul(PyObject *a, PyObject *b)
+{
+    Py_ssize_t value_a = PyLong_AsSsize_t(a);
+    Py_ssize_t value_b = PyLong_AsSsize_t(b);
+
+    return PyLong_FromSsize_t(value_a * value_b);
+}
+
+PyObject *mod(PyObject *a, PyObject *b)
+{
+    Py_ssize_t value_a = PyLong_AsSsize_t(a);
+    Py_ssize_t value_b = PyLong_AsSsize_t(b);
+
+    return PyLong_FromSsize_t(value_a % value_b);
+}
+
