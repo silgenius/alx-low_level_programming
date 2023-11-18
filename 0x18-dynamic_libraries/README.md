@@ -1,26 +1,14 @@
-# 0x18. C - Dynamic Libraries
+# Code injection: Win the Giga Millions!
 
-## Description
+I bought a ticket for the Giga Millions and chose those numbers: 9, 8, 10, 24, 75 + 9. Can you make me win the Jackpot?
 
-This project is part of the ALX Low-Level Programming curriculum. It explores the concept of dynamic libraries in the C programming language.
-
-## Files
-
-1. [libdynamic.so](./libdynamic.so) - A dynamic library containing various C functions.
-2. [1-create_dynamic_lib.sh](./1-create_dynamic_lib.sh) - Shell script that creates a dynamic library from a list of C files.
-3. [100-operations.so](./100-operations.so) - A dynamic library containing mathematical operation functions.
-4. [101-make_me_win.sh](./101-make_me_win.sh) - Shell script that injects a dynamic library to alter the outcome of the `gm` command in the Lotto program.
-
-## AUTHORS
-
-- [Martin Olutade](https://github.com/silgenius)
-
-## How to Use
-
-### Compilation
-
-To compile the dynamic library, use the following command:
-
-```bash
-gcc -Wall -fPIC -c *.c
-
+```
+/* Giga Millions program                                                                                    
+  * Players may pick six numbers from two separate pools of numbers:                                                
+  * - five different numbers from 1 to 75 and                                                                       
+  * - one number from 1 to 15                                                                                       
+  * You win the jackpot by matching all six winning numbers in a drawing.                                           
+  * Your chances to win the jackpot is 1 in 258,890,850                                                             
+  *                                                                                                                 
+  * usage: ./gm n1 n2 n3 n4 n5 bonus
+```
