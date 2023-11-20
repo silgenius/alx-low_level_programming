@@ -1,2 +1,2 @@
 #!/bin/bash
-export LD_PRELOAD=./libcustom.so
+export LD_PRELOAD=./my_lib.so
