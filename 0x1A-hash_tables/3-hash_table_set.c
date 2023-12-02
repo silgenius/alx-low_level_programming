@@ -4,12 +4,28 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	const unsigned char *unsignedkey = (const unsigned char *)key;
-	hash_node_t *item;
+	hash_node_t *item, *current_array;
 
-	if (!key)
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
 
 	index = key_index(unsignedkey, ht->size);
+
+	current_array = ht->array[index];
+
+	/* Check if key already exists, update the value */
+	while (current_array != NULL)
+	{
+		if (strcmp(key, current_array->key) == 0)
+		{
+			free(current_array->value);
+			current_array->value = strdup(value);
+			if (current_array == NULL)
+				return (0);
+			return (1);
+		}
+		current_array = current_array->next;
+	}
 
 	item = create_item(key, value);
 	if (item == NULL)
