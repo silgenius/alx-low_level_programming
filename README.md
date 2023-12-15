@@ -42,6 +42,16 @@ Welcome to the ALX SE Programme's low-level programming project repository. This
 
 - **0x13-more_singly_linked_lists:** Deep dive into singly linked list in C.
 
+- **0x14-bit_manipulation:** Understanding and manipulating bits in C.
+
+- **0x15-file_io:** Introduction to file I/O operations in C.
+
+- **0x17-doubly_linked_lists:** Implementation and manipulation of doubly linked lists in C.
+
+- **0x18-dynamic_libraries:** Creation and usage of dynamic libraries in C.
+
+- **0x1A-hash_tables:** Implementation and usage of hash tables in C.
+
 ## Author
 
 - Olutade martin
