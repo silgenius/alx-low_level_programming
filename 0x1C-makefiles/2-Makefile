@@ -4,10 +4,13 @@ OBJ = $(SRC:.c=.o)
 NAME = school
 
 .PHONY: $(NAME)
-all: $(NAME)
+all: $(NAME) post-build-clean
 
 $(NAME): main.o school.o
 	gcc $(OBJ) -o $(NAME)
 
 %.o: %.c
 	$(CC) -c -o $@ $<
+
+post-build-clean:
+	@rm -f *.o
