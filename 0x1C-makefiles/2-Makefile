@@ -10,4 +10,4 @@ $(NAME): main.o school.o
 	gcc $(OBJ) -o $(NAME)
 
 %.o: %.c
-	$(CC) -c -o $< $@
+	$(CC) -c -o $@ $<
