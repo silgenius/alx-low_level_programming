@@ -1,9 +1,9 @@
-.PHONY: all
+.PHONY: school
 
 CC = gcc
 SRC = $(wildcard *.c)
 
-all: school
+.DEFAULT_GOAL := school
 
 school: $(SRC)
 	${CC} $(SRC) -o school
