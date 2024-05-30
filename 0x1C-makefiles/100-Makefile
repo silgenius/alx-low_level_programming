@@ -3,7 +3,6 @@ CC = gcc
 SRC = main.c foo.c bar.c
 OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall -Werror -Wextra -pedantic
-RM = rm -f
 
 all: $(NAME)
 
