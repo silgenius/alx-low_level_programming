@@ -8,7 +8,7 @@ FLAG := $(CFLAGS)
 .PHONY: $(NAME) clean oclean fclean re all
 all: $(NAME)
 
-$(foreach file, $(SRC), $(eval $(file:.c=.o): $(file) ; $(CC) $(CFLAGS) -c -o $(file:.c=.o) $(file)))
+$(foreach file, $(SRC), $(eval $(file:.c=.o): $(file) ; gcc $(CFLAGS) -c -o $(file:.c=.o) $(file)))
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
