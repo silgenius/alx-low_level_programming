@@ -1,17 +1,14 @@
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
 NAME = school
-FLAG := $(CFLAGS)
-compiler := $(CC)
+CC = gcc
+SRC = main.c foo.c bar.c
+OBJ = $(SRC:.c=.o)
+CFLAGS = -Wall -Werror -Wextra -pedantic
+RM = rm -f
 
-.PHONY: $(NAME) clean oclean fclean re all
-all: m.h $(NAME)
+all: $(NAME)
 
-$(foreach file, $(SRC), $(eval $(file:.c=.o): $(file) ; compiler $(CFLAGS) -c -o $(file:.c=.o) $(file)))
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
 	$(RM) *~ $(NAME)
@@ -19,6 +16,13 @@ clean:
 oclean:
 	$(RM) $(OBJ)
 
-fclean: clean oclean
+fclean: clean
+	$(RM) $(NAME)
 
-re: oclean all
+re: fclean all
+
+$(OBJ): %.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+.PHONY: all clean oclean fclean re
+
