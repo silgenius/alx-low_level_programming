@@ -3,12 +3,11 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
-FLAG := $(CFLAGS)
 
 all: m.h $(NAME)
 
 $(NAME): $(SRC)
-	$(CC) $(FLAG) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
 	$(RM) *~ $(NAME)
