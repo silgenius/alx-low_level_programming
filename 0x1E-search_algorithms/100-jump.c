@@ -26,6 +26,8 @@ int jump_search(int *array, size_t size, int value)
 		return -1;
 	}
 
+	printf("Value checked array[%ld] = [%d]\n", prev, array[prev]);
+
 	/* Find the block where the value may be present */
 	while (index < size && array[index] < value)
 	{
