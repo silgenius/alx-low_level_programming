@@ -21,6 +21,10 @@ int jump_search(int *array, size_t size, int value)
 
 	index = 0;
 	prev = 0;
+
+	if (array == NULL)
+		return (-1);
+
 	while (1)
 	{
 		if (array[index] >= value || index > size)
@@ -46,6 +50,4 @@ int jump_search(int *array, size_t size, int value)
 		prev = index;
 		index += squareroot;
 	}
-
-	return (-1);
 }
