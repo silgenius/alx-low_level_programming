@@ -22,6 +22,8 @@ int binary_search(int *array, size_t size, int value)
 	size_t mid;
 	(void) size;
 
+	if (array == NULL)
+		return(-1);
 	while (right >= left)
 	{
 		print_array(array, left, right);
