@@ -2,7 +2,7 @@
 
 /**
  * exponential_search - Perform exponential search on a sorted
- * 	array of integers.
+ * array of integers.
  * @array: Pointer to the first element of the sorted array.
  * @size: Number of elements in the array.
  * @value: Value to search for within the array.
@@ -44,7 +44,7 @@ int exponential_search(int *array, size_t size, int value)
 
 /**
  * binary_search_range - Perform binary search on a sorted array within a
- * 			specified range.
+ * specified range.
  * @array: Pointer to the first element of the sorted array.
  * @left: Index of the left boundary of the search range.
  * @right: Index of the right boundary of the search range.
