@@ -71,7 +71,7 @@ void print_array(int *array, size_t index, size_t end)
  */
 int binary_search_recursion(int *array, size_t low, size_t high, int value)
 {
-	size_t mid = (high + low) / 2;
+	size_t mid = low + (high - low) / 2;
 
 
 	if (low <= high)
