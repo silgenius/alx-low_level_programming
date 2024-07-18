@@ -27,10 +27,14 @@ int jump_search(int *array, size_t size, int value);
 int interpolation_search(int *array, size_t size, int value);
 int exponential_search(int *array, size_t size, int value);
 int advanced_binary(int *array, size_t size, int value);
+listint_t *jump_list(listint_t *list, size_t size, int value);
 
 int binary_search_recursion(int *array, size_t low, size_t high, int value);
 int binary_search_range(int *array, size_t left, size_t right, int value);
 void print_array(int *array, size_t index, size_t end);
-
+void print_list(const listint_t *list);
+void free_list(listint_t *list);
+listint_t *create_list(int *array, size_t size);
+listint_t *find_node_by_index(listint_t *list, size_t index);
 
 #endif /* SEARCH_ALGOS */
