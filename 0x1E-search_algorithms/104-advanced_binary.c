@@ -90,8 +90,6 @@ int binary_search_recursion(int *array, size_t low, size_t high, int value)
 			return (binary_search_recursion(array, low, mid - 1, value));
 		else
 			return (binary_search_recursion(array, mid + 1, high, value));
-
-		return (-1);
 	}
 
 	return (-1);
